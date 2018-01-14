@@ -7,9 +7,14 @@
     
     <style>
       html, body {padding: 0; margin: 0; width: 100%; height: 100%;}
-	    #map {height: 100%;}
+	#map {height: 100%;}
     </style>
-    
+	  
+    <header>
+	<h3 style="display:inline"> Lansing Mapping Project </h3>
+	<p> The following map serves as a regional case study of... </p>
+    </header>
+	  
     <!--Leaflet Quick Start Code-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
@@ -28,7 +33,7 @@
 
     var map = L.map('map',{
     center: [42.734447, -84.545577],
-    zoom: 15
+    zoom: 18
     });
 
     L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
