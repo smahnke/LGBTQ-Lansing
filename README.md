@@ -1,1 +1,1 @@
-# LGBTQ-Lansing
+# QR-Map3

@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Qr-map3 by smahnke</title>
+    
+    <style>
+      #map {
+        width: 1100px;
+        height: 500px;
+      }  
+    </style>
+    
+    <!--Leaflet Quick Start Code-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="map"></div>
+    
+    <script>
+
+    var map = L.map('map',{
+    center: [42.734447, -84.545577],
+    zoom: 15
+    });
+
+    L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+    attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
+    }).addTo(map);
+      
+    var QueerIcon = L.icon({
+        iconUrl: 'https://www.thecenterproject.org/wp-content/uploads/2016/07/Rainbow-Map-Marker-180x270.png',
+        iconSize: [38, 65], // size of the icon
+        popupAnchor: [0,-15]
+        });
+     
+    var TramBar = L.popup()
+      .setLatLng([42.734447, -84.545577])
+      .setContent("<p><h2>Trammps Bar (1976 - 90's)</h2><br /><img src='https://raw.githubusercontent.com/smahnke/QR-Map3/gh-pages/trammps.jpg'/><br /><h3>Emergence:</h3>The first gay owned club in Lansing, Trammps was the Studio 54 of the gay scene, often competing with Joe Covello's next door.<br /><h3>Departure:</h3>demolished in the 90s after the city bought the block of businesses for a new baseball stadium.</p>")
+  
+    var Trammps = L.marker([42.734447, -84.545577], {icon: QueerIcon}).bindPopup(TramBar).addTo(map);
+    
+    var VelFin = L.popup()
+        .setLatLng([42.733786, -84.544727])
+        .setContent("<p><h2>Velvet Fingers (70's - 1993)</h2><br /><img src='https://raw.githubusercontent.com/smahnke/QR-Map3/gh-pages/Velvet.png'/><h3>Emergence:</h3>Formerly known the Velvet Touch Massage Parlor, this adult store was just one of the many public sexual establishments on the 500 block, such as the New Art Theatre, Capital News Adult Bookstore, Pleasure Chest Adult Bookstore, the Sir Club and Superstar Videos/S'il Vous Plait.<br /><h3>Departure:</h3>The last of the businesses standing on the 'Sin Street' 500 block, Velvet Fingers was demolished in 1993 to make way for a new baseball stadium. According to Dozzier (2015), 'the north side of the block is now occupied by the Cooley Law School Stadium, a mix of retail, commercial, and residential development.'</p>")
+      
+    var Velvet = L.marker([42.733786, -84.544727], {icon: QueerIcon}).bindPopup(VelFin).addTo(map);
+      
+    var StoBar = L.popup()
+        .setLatLng([42.733511, -84.540400])
+        .setContent("<p><h2>Stober's Bar (1960s -- ?)</h2><br /><img src='http://static.wehaacdn.com/lansingcitypulse-com/images/147200419657bd00647a4b8.11053.t1.0.jpg'/><br /><h3>Emergence:</h3>Stober's has actually been open since 1925 and is currently Lansing's oldest living bar. However, it opened its doors to the LGBTQ crowd in the 60s after they were turned away from the new Sir Club whose topless dancers catered only to straight men. Rudy Stober, a heterosexual immigrant and described by others as open and kind, opened his doors to provide a safe and welcoming atmosphere for patrons turned away from other private businesses. To cater to the disco crowd, he hired Flint gay club owner Bill Kane to update the decor for this purpose.<h3>Departure:</h3>the gay community at this bar eventually became victims of violent muggings. Often this would go unreported as the Lansing Police didn't support the gay community. The once safe Stober's no longer became an option.</p>")
+  
+    var Stobers = L.marker([42.733511, -84.540400], {icon: QueerIcon}).bindPopup(StoBar).addTo(map);
+    
+    var ChroCat = L.popup()
+        .setLatLng([42.747339, -84.549072])
+        .setContent("<p><h2>Chrome Cat (2009-2013)</h2><br /><img src='https://c1.staticflickr.com/9/8011/7486631318_36393be522_b.jpg'/><h3>Emergence:</h3>Opening in the Old Town art studio of gay club owner Tom Donnell, Chrome Cat welcomed the lesbian crowd that had to leave the recently closed Club 505. The bar has been described as a 'neighborhood bar' wherein locals from nearby, mostly gay but also straight, would frequent.<h3>Departure:</h3>In its last year, Chrome Cat threw a 'save the Kitty' drive to pay the $13k of Donnell's back rent. Manager Melissa Kim was still faced with meager future options, and due to business taxes, decided to close Chrome Cat's doors. Kim tells Lansing City Pulse, 'You can't fight the government. They were going to negotiate but the whole support your local artists idea wasn't really working out for us.'</p>")
+    
+    var Chrome = L.marker([42.747339, -84.549072], {icon: QueerIcon}).bindPopup(ChroCat).addTo(map);
+      
+    var OlsBar = L.popup()
+        .setLatLng([42.736902, -84.552214])
+        .setContent("<p><h2>Olsen's Bar (mid-50's - 1960)</h2><br /><img src='http://static.wehaacdn.com/lansingcitypulse-com/images/147200414557bd0031d87dc.11052.widea.0.jpg'/><h3>Emergence:</h3>Not much is known of this Lansing bar that served as an underground homosexual meeting place in the 50's. MSU professor Tim Retzloff uncovered the oldest reference to the bar in a 1957 'sex deviation' Police Report wherein a homosexual student reported meeting men at this spot.<h3>Departure:</h3>By the end of the decade, it transformed into the Clique Lounge. Little is known as to whether it remained a secret rendez-vous for LGBTQ crowds. It's now a parking lot for Lansing Community College faculty and students on Washington Square near Shiawassee Street.</p>")
+    
+    var Olsens = L.marker([42.736902, -84.552214], {icon:QueerIcon}).bindPopup(OlsBar).addTo(map);
+      
+    var CovBar = L.popup()
+        .setLatLng([42.733772, -84.546152])
+        .setContent("<p><h2>Joe Covello's (70's - 90's)</h2><br /><img src='https://raw.githubusercontent.com/smahnke/QR-Map3/gh-pages/Covellos1986.jpg'/><h3>Emergence:</h3>Bar owner Joe Covello tested out Lansing's gay waters to fill a niche, and soon the bar attracted a loyal crowd of LGBTQ patrons who were often older and blue-collar compared to Trammps' (next door) younger LGBTQ crowd.<br /><h3>Departure:</h3>Demolished in the 90's after the city bought the 500 block to make a new baseball stadium.</p>")
+    
+    var Covellos = L.marker([42.733772, -84.546152], {icon: QueerIcon}).bindPopup(CovBar).addTo(map);
+      
+    var xcel = L.popup()
+        .setLatLng([42.731586, -84.552669]) 
+        .setContent("<p><h2>Paradise / Club Excel (1993 - 2002;2002 - 2008)</h2><br /><img src='http://www.lansing-bars.com/xcel-nightclub.jpg'/><h3>Emergence:</h3>First a gay bar called Paradise, the Tom Donnell-owned establishment began with strippers.<h3>Departure:</h3>After attendance started suffering and Spiral attracted the majority of their LGBTQ clients, the owners had to resort to more straight nights.</p>")
+    
+    var Excel = L.marker([42.731586, -84.552669], {icon: QueerIcon}).bindPopup(xcel).addTo(map);
+    
+    var C505 = L.popup()
+        .setLatLng([42.737502, -84.546273])
+        .setContent("<p><h2>Club 505 (2000-2008)</h2><br /><img src='https://raw.githubusercontent.com/smahnke/QR-Map3/gh-pages/Screenshot%20(58).png'/><h3>Emergence:</h3>Lansing's first bar catering to lesbians and bisexual women, Club 505 was lesbian-owned and also served as a meeting and event space for the lesbian/bisexual communities.<br /><h3>Departure:</h3>Bought by Pat Gillespie and has since been used for commercial space. The lesbian crowd moves to Chrome Cat.</p>")
+    
+    var Club505 = L.marker([42.737502, -84.546273], {icon: QueerIcon}).bindPopup(C505).addTo(map);   
+      
+    </script>
+
+    <div class="wrapper">
+      <header>
+        <h1>Queer Lansing: The Struggle for Public Presence</h1>
+        <p></p>
+        
+      </header>
+      <section>
+        <h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction.</h3>
+
+<p>In The New Normal, Michael Warner (1999) discusses the zoning laws of New York that pushed out the queer public sphere in favor of market capital space. As Warner suggests, te erasure of queer spaces and places is symptom of societal regulation of sex through the delineation of the public/private (p. 161). Time Square, for instance, has demonstrated a cleansing of the commercial space, resulting in the removal of queer clubs, porn shops, adult stores, etc. Though Warner explores the various spaces of New York that have been affected, it is symptomatic of a nation-wide push to prioritize market capital over the creation of a democratic public sphere.</p>
+<p><img src="http://www.gannett-cdn.com/-mm-/1b8d44646f35233b913cde8af2b6d6b5f8ab17fe/c=0-20-1650-1261&r=x513&c=680x510/local/-/media/2015/09/01/MIGroup/Lansing/635766998825407050-East-Michigan-Avenue1.jpg">Photo from Lansing State Journal <a href="http://www.lansingstatejournal.com/picture-gallery/life/2015/09/03/from-the-archives-sin-strip-and-east-michigan-avenue/71507496/">Archives.</a></p>
+<p>Lansing, Michigan has a history of public sex culture but has similarly faced challenges that limit the presence of adult establishments. A quick dig into Lansing State Journal's archive reveals Michigan Avenue as a once-hailed "Sin Strip" filled with adult theatres, LGBTQ bars, and adult shops lining the 500 block where Cooley Stadium now sits. It is a history few residents know because many public LGBTQ establishments have lived short lives, often struggling in the face of economic, commercial, and homophobic pressures.</p>
+<p>What results from these spatial dispersals and erasures are commercialized representations of space that displace the LGBTQ community from the public to the private sphere. With global, governmental, and technological pressures cramping down on what's left of our democratic public, in general, the LGBTQ community is faced with an additional societal regulation of moving their sexual lives out of the open and into private domesticated spaces.</p>
+<p>The aim of this Lansing mappig project is not just to provide an exploration of the forms and nature of the queer public sphere, but to provide a spatial means of envisioning their displacement from past and present locales. It also, alternatively, serves as a means of uncovering and reqriting Lansing's queer spaces onto the map; what was once invisible can then have a visible presence to establish what Warner asserts has been lacking in the queer movement: a visible LGBTQ lineage for the next generation gays. Finally, the map can have the additional didactic purpose of highlighting causal pressures for the removal of queer spaces which can inform thought on urban governance and the growing fallacy of democratic publics.</p>
+
+<h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Production of Queer Space</h3>
+
+<p>I draw from John Grube's (1997) definition of a 'democratic' public sphere as one wherein identities are visible, and particularly for public sexual culture, evidence of sexual nature is obvious. Explicit presence of the LGBTQ community in urban spaces is a strategic 'place-making' move, allowing sexual minorities to engage in networking, participate in activities, assert a respected existence, and dialogue and take part in the greater community.</p>
+<p>The above Lansing sites contain a few underground spots, such as Stober's and Olsen's, but the majority of the establishments exerted a physically identifiable space in the city. The lesbian Club 505 could be considered a partial exception given the deliberately hidden nature of the building as described by professor <a href="http://lansingcitypulse.com/article-13652-hidden-then-and-now.html">Retzcloff</a>. The production of these queer spaces in Lansing seemed to be the result of at least three major factors: (1) the recognition of a gay space through gay ownership, such as the community's familiarity with Victor Cohenand bar-owner Tom Donnell through name and sometimes their iconic bar decor (Paradise/Excel, Spiral, Chrome Cat, and Trammps); (2) the trending movement of LGBTQ crowds, whether they were moving on from a competiting or recently closed gay establishment or turned away from a private establishment (Stober's, Chrome Cat, Spiral, JB's, and Esquire); and (3) non-LGBTQ affiliated owners welcoming the gay crowd for more profit possibilities (Covello's, and Stober's).</p>
+        
+<h3>
+<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Challenges to Democratic Gay Space</h3>
+
+<p>A measurement of inclusive municipal laws, policies, and services of LGBTQ people in Lansing received a 65/100 score on the <a href= "http://www.hrc.org/mei"> Municipal Equality Index 2016</a>, demonstrating that though the city is strong in non-discrimination laws, the city's commitment to including the LGBTQ community is still a work in progress. The departures of many of Lansing's adult sites seem to echo a more generally positive attitude toward the LGBTQ groups in recent years; crime and harassment that pushed gays out of establishments were mostly documente. Many of the more recent establishments departed due to financial and economic factors stemming rom (1) low attendance, exacerbated by newer competing LGBTQ bars; (2) business taxes; and (3) being bought out and/or pushed out for more mainstream commercial and residential businesses.</p>
+<p>Perhaps the biggest removal of adult spaces in Lansing was the gradual removal of 'Sin Strip,' the 500 block of businesses bought by the city to create Cooley Law School Stadium. Then Lansing mayor David Hollister referred to the new development as replacing the <a href="http://www.lansingstatejournal.com/story/news/local/2015/04/09/lugnuts-stadium-remain-key-downtown-lansings-rise/25523857/">sin strip filled with eyesores</a>. Since, the stadium has been surrounded by residential developments that have cropped up in the downtown area of straight-laced American bars, pubs, and nightlife.</p>
+        
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References</h3>
+
+<p>Cusack, M.C. (2010). Getting out. <i>City Pulse</i>. Retrieved from http://lansingcitypulse.com/article-4424-getting-out.html</p>
+<p>From the archives: Sin Strip and East Michigan Avenue. (2015). <i>Lansing State Journal</i>. Retrieved from http://www.lansingstatejournal.com/picture-gallery/life/2015/09/03/from-the-archives-sin-strip-and-east-michigan-avenue/71507496/</p> 
+<p>Grube, J. (1997). 'No more shit': The struggle for democratic gay space in Toronto. In G.B. Ingram, A.M. Bouthillette, and Y. Retter (Eds.) <i>Queers in Space</i> (pp. 127-145). Seattle, WA: Bay Press.        
+<p>Heywood, T. (2016). Hidden, then and now: The ghosts of Olsen's Bar whisper Lansing's gay history. <i>City Pulse</i>. Retrieved from http://lansingcitypulse.com/article-13652-hidden-then-and-now.html</p>
+<p>Popular lesbian hangout reopens as Corner Bar and Grill. (2008). <i>Capitalgains Lansing</i>. Retrieved from http://www.secondwavemedia.com/capitalgains/inthenews/grab0239.aspx</p>
+<p>Warner, M. (1999). <i>The Trouble with Normal: Sex, Politics, and the Ethics of Queer Life.</i> Cambridge, MA: Harvard University Press.</p>
+        
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Want to add to the map?</h3>
+
+<p>Want to add to or amend the map? Contact mahnkes1@msu.edu.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/smahnke">smahnke</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
